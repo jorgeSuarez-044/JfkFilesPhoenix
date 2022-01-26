@@ -1,6 +1,7 @@
 import * as React from "react";
 import Icon from "material-ui/Icon";
 import { TextField } from "material-ui";
+import searchicon from "./busqueda.jpg";
 
 const style = require("./search-input.style.scss");
 
@@ -22,11 +23,13 @@ const captureEnter = (onSearchSubmit) => (e) => {
 
 export const SearchInput = (props: SearchInputProps) => (
   <div>
-    <Icon classes={{ root: style.icon }}>&#xe900;</Icon>
+    <div>
+      <img src={searchicon}></img>
+    </div>
+    {/* <Icon classes={{ root: style.icon }}>&#xe900;</Icon> */}
     <TextField
-      id="outlined-basic"
+      id="outlined"
       label=""
-      className={style.input}
       type="text"
       placeholder="Buscar por palabra clave..."
       value={props.searchValue}

@@ -52,7 +52,7 @@ const SearchButton = ({ onClick }) => (
     color="secondary"
     onClick={onClick}
   >
-    BUSCAR
+    Buscar
   </Button>
 );
 

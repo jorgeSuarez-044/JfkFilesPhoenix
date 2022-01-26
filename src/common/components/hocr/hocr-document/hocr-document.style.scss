@@ -24,7 +24,8 @@
 
   &:hover,
   &.highlight {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(38, 128, 206, 0.16),
+      0 3px 6px rgba(79, 113, 186, 0.23);
   }
 }
 
@@ -52,12 +53,12 @@
 
 .word {
   &.target {
-    background: yellow;
+    background: rgb(115, 115, 12);
   }
 
   &:hover,
   &.highlight {
-    background: #99cfff;
+    background: #0065c9;
     outline: solid 3px #007eff;
   }
 }

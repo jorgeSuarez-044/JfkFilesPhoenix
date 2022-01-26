@@ -25,7 +25,7 @@
   @include default-fill();
 
   &.target {
-    fill: yellow;
+    fill: rgb(0, 179, 255);
     opacity: 0.5;
   }
 
@@ -38,5 +38,3 @@
     stroke-dasharray: 0;
   }
 }
-
-

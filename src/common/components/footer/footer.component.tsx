@@ -6,7 +6,7 @@ const style = require("./footer.style.scss");
 
 const Links = () => (
   <div className={style.linkArea}>
-    <a
+    {/* <a
       className={style.link}
       href="https://technet.microsoft.com/en-US/cc300389.aspx"
       target="__blank"
@@ -19,24 +19,22 @@ const Links = () => (
       target="__blank"
     >
       Privacy
-    </a>
+    </a> */}
   </div>
 );
 
-const Statement = () => (
-  <div className={style.statementArea}>© Microsoft 2018</div>
-);
+const Statement = () => <div className={style.statementArea}></div>;
 
 export const FooterComponent = ({ className = null }) => {
   return (
     <footer className={cnc(style.footer, className)}>
       <Statement />
-      <a href="https:\\www.microsoft.com" target="__blank">
+      {/* <a href="https:\\www.microsoft.com" target="__blank">
         <LogoMicrosoftComponent
           colorful={false}
           classes={{ container: style.logoContainer, svg: style.logoSvg }}
         />
-      </a>
+      </a> */}
       <Links />
     </footer>
   );
