@@ -27,10 +27,10 @@ export const SearchInput = (props: SearchInputProps) => (
       <img src={searchicon}></img>
     </div>
     {/* <Icon classes={{ root: style.icon }}>&#xe900;</Icon> */}
-    <TextField
-      id="outlined"
-      label=""
+    <input
+      className={style.input}
       type="text"
+      style={{ width: "557px", height: "39px", marginRight: "76px" }}
       placeholder="Buscar por palabra clave..."
       value={props.searchValue}
       onChange={handleOnChange(props.onSearchUpdate)}
