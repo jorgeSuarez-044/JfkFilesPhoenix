@@ -6,7 +6,6 @@ import { Facet, Filter } from "../../view-model";
 
 const style = require("./facet-item.style.scss");
 
-
 interface FacetItemProps {
   facet: Facet;
   filter: Filter;
@@ -23,7 +22,7 @@ export class FacetItemComponent extends React.Component<FacetItemProps, State> {
 
     this.state = {
       expanded: true,
-    }
+    };
   }
 
   private toggleExpand = () => {
@@ -31,20 +30,18 @@ export class FacetItemComponent extends React.Component<FacetItemProps, State> {
       ...this.state,
       expanded: !this.state.expanded,
     });
-  }
-    
+  };
+
   public render() {
     const { facet, filter, onFilterUpdate } = this.props;
     const { expanded } = this.state;
 
-    if (!facet.values) { return null }
+    if (!facet.values) {
+      return null;
+    }
 
     return (
-      <Card
-        className={style.card}
-        color="inherit"
-        elevation={0}
-      >
+      <Card className={style.card} color="inherit" elevation={0}>
         <FacetHeaderComponent
           facet={facet}
           expanded={expanded}
@@ -58,5 +55,5 @@ export class FacetItemComponent extends React.Component<FacetItemProps, State> {
         />
       </Card>
     );
-  }  
+  }
 }

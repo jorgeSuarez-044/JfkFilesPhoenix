@@ -52,13 +52,6 @@ export const ResultViewModeToggler = (props: ViewModeTogglerProps) => {
           &#xe902;
         </IconButton>
       )}
-      <IconButton
-        classes={iconStyle("graph")}
-        color={toggleColorFunc("graph")}
-        onClick={notifyModeChangedFunc("graph")}
-      >
-        &#xe904;
-      </IconButton>
     </>
   );
 };
