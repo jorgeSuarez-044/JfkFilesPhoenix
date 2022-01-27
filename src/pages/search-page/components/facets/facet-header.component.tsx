@@ -26,7 +26,7 @@ export const FacetHeaderComponent: React.StatelessComponent<
         ) : null}
         <span>{props.facet.displayName.toUpperCase()}</span>
       </div>
-      <Chevron onClick={props.onToggleExpanded} expanded={props.expanded} />
+      {/* <Chevron onClick={props.onToggleExpanded} expanded={props.expanded} /> */}
     </CardActions>
   );
 };
