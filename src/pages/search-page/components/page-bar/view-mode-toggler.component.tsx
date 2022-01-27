@@ -5,24 +5,27 @@ import { cnc } from "../../../../util";
 
 const style = require("./view-mode-toggler.style.scss");
 
-
 interface ViewModeTogglerProps {
   resultViewMode: ResultViewMode;
   onChangeResultViewMode: (newMode: ResultViewMode) => void;
   pulseToggle?: ResultViewMode;
 }
 
-const toggleColor = (props: ViewModeTogglerProps) => (viewMode: ResultViewMode) => {
-  return props.resultViewMode === viewMode ? "primary" : "inherit";
-}
+const toggleColor =
+  (props: ViewModeTogglerProps) => (viewMode: ResultViewMode) => {
+    return props.resultViewMode === viewMode ? "primary" : "inherit";
+  };
 
 const pulseToggle = (props: ViewModeTogglerProps, toggle: ResultViewMode) => {
-  return Boolean((toggle === props.pulseToggle) && (toggle !== props.resultViewMode));
-}
+  return Boolean(
+    toggle === props.pulseToggle && toggle !== props.resultViewMode
+  );
+};
 
-const notifyModeChanged = (props: ViewModeTogglerProps) => (newMode: ResultViewMode) => () =>{
-  return props.onChangeResultViewMode(newMode);
-}
+const notifyModeChanged =
+  (props: ViewModeTogglerProps) => (newMode: ResultViewMode) => () => {
+    return props.onChangeResultViewMode(newMode);
+  };
 
 export const ResultViewModeToggler = (props: ViewModeTogglerProps) => {
   const toggleColorFunc = toggleColor(props);
@@ -40,8 +43,7 @@ export const ResultViewModeToggler = (props: ViewModeTogglerProps) => {
       >
         &#xe903;
       </IconButton>
-      {
-        false &&
+      {false && (
         <IconButton
           classes={iconStyle("grid")}
           color={toggleColorFunc("grid")}
@@ -49,7 +51,7 @@ export const ResultViewModeToggler = (props: ViewModeTogglerProps) => {
         >
           &#xe902;
         </IconButton>
-      }
+      )}
       <IconButton
         classes={iconStyle("graph")}
         color={toggleColorFunc("graph")}
@@ -59,4 +61,4 @@ export const ResultViewModeToggler = (props: ViewModeTogglerProps) => {
       </IconButton>
     </>
   );
-}
+};

@@ -9,7 +9,6 @@ import IconButton from "material-ui/IconButton";
 
 const style = require("./toolbar.style.scss");
 
-
 /**
  * Main toolbar for Detail page.
  */
@@ -28,7 +27,7 @@ export class ToolbarComponent extends React.Component<ToolbarProps, {}> {
 
   private handleZoomClick = (zoomMode: ZoomMode) => () => {
     this.props.onZoomChange(zoomMode);
-  }
+  };
 
   public render() {
     return (
@@ -63,13 +62,13 @@ const ToggleViewButton = ({ onClick }) => (
     color="inherit"
     onClick={onClick}
   >
-    Toggle View
+    Vista Reconocimiento Imagenes
   </Button>
 );
 
 const toggleColor = (targetMode: ZoomMode, zoomMode: ZoomMode) => {
   return targetMode === zoomMode ? "primary" : "inherit";
-}
+};
 
 const OriginalSizeButton = ({ zoomMode, onClick }) => (
   <IconButton

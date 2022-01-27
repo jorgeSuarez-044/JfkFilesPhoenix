@@ -1,11 +1,13 @@
 import * as React from "react";
-import { HocrProofreaderComponent, PageIndex } from "../../common/components/hocr";
+import {
+  HocrProofreaderComponent,
+  PageIndex,
+} from "../../common/components/hocr";
 import { ZoomMode } from "../../common/components/hocr";
 import { ToolbarComponent } from "./components/toolbar";
 import { HorizontalSeparator } from "../../common/components/horizontal-separator";
 
 const style = require("./detail-page.style.scss");
-
 
 interface DetailPageProps {
   hocr: string;
@@ -32,7 +34,7 @@ export class DetailPageComponent extends React.Component<DetailPageProps, {}> {
           onZoomChange={this.props.onZoomChange}
           onCloseClick={this.props.onCloseClick}
         />
-        <HorizontalSeparator className={style.separator}/>
+        <HorizontalSeparator className={style.separator} />
         <HocrProofreaderComponent
           className={style.hocr}
           hocr={this.props.hocr}

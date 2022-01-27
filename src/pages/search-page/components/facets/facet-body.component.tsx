@@ -5,7 +5,6 @@ import { CreateSelectionControl } from "../selection-controls";
 
 const style = require("./facet-body.style.scss");
 
-
 interface FacetBodyProps {
   facet: Facet;
   expanded: boolean;
@@ -13,12 +12,18 @@ interface FacetBodyProps {
   onFilterUpdate: (newFilter: Filter) => void;
 }
 
-export const FacetBodyComponent: React.StatelessComponent<FacetBodyProps> = (props) => {
+export const FacetBodyComponent: React.StatelessComponent<FacetBodyProps> = (
+  props
+) => {
   return (
     <Collapse in={props.expanded} timeout="auto">
       <div className={style.body}>
-        {CreateSelectionControl(props.facet, props.filter, props.onFilterUpdate)}
-      </div>          
+        {CreateSelectionControl(
+          props.facet,
+          props.filter,
+          props.onFilterUpdate
+        )}
+      </div>
     </Collapse>
   );
 };

@@ -1,18 +1,21 @@
-import * as React from "react"
+import * as React from "react";
 import { SelectionProps } from "./selection-control";
 import { FormControlLabel } from "material-ui/Form";
 import { Facet, FacetValue, Filter } from "../../view-model";
 import Checkbox from "material-ui/Checkbox";
-import { isValueInArray, addValueToArray, removeValueFromArray } from "../../../../util";
+import {
+  isValueInArray,
+  addValueToArray,
+  removeValueFromArray,
+} from "../../../../util";
 
 const style = require("./checkbox-list.style.scss");
-
 
 class CheckboxListComponent extends React.Component<SelectionProps, {}> {
   constructor(props) {
     super(props);
   }
-  
+
   private getFilter = (): Filter => {
     if (this.props.filter) {
       return this.props.filter;
@@ -23,26 +26,26 @@ class CheckboxListComponent extends React.Component<SelectionProps, {}> {
       };
       return newFilter;
     }
-  }
+  };
 
-  private handleChange = (facetValue) => (event) => {    
+  private handleChange = (facetValue) => (event) => {
     const currentFilter = this.getFilter();
-    const newCheckedList = (event.target.checked) ? 
-      addValueToArray(currentFilter.store, facetValue) : 
-      removeValueFromArray(currentFilter.store, facetValue);
+    const newCheckedList = event.target.checked
+      ? addValueToArray(currentFilter.store, facetValue)
+      : removeValueFromArray(currentFilter.store, facetValue);
     this.props.onFilterUpdate({
       ...currentFilter,
       store: newCheckedList.length ? newCheckedList : null,
     });
-  }
-  
+  };
+
   private isValueInFilterList = (facetValue): boolean => {
-    if (this.props.filter && this.props.filter.store){
+    if (this.props.filter && this.props.filter.store) {
       return isValueInArray(this.props.filter.store, facetValue);
     } else {
       return false;
-    }    
-  }
+    }
+  };
 
   private getCheckboxLabel = (labelValue: string, labelCount: number) => {
     return (
@@ -50,8 +53,8 @@ class CheckboxListComponent extends React.Component<SelectionProps, {}> {
         {labelValue}
         <span className={style.highlight}>{` (${labelCount.toString()})`}</span>
       </>
-    )
-  }
+    );
+  };
 
   private getCheckbox = (facetValue) => (
     <Checkbox
@@ -64,25 +67,21 @@ class CheckboxListComponent extends React.Component<SelectionProps, {}> {
       checked={this.isValueInFilterList(facetValue)}
       onChange={this.handleChange(facetValue)}
     />
-  ); 
-  
-  private getCheckboxList = () => (
-   this.props.facet.values.map((facetValue, index) => 
-    <FormControlLabel
-      classes={{label: style.label}}
-      control={this.getCheckbox(facetValue.value)}
-      label={this.getCheckboxLabel(facetValue.value, facetValue.count)}
-      key={index}
-    />
-  ));
+  );
+
+  private getCheckboxList = () =>
+    this.props.facet.values.map((facetValue, index) => (
+      <FormControlLabel
+        classes={{ label: style.label }}
+        control={this.getCheckbox(facetValue.value)}
+        label={this.getCheckboxLabel(facetValue.value, facetValue.count)}
+        key={index}
+      />
+    ));
 
   public render() {
-    return (
-      <div className={style.container}>
-        {this.getCheckboxList()}
-      </div>
-    );    
+    return <div className={style.container}>{this.getCheckboxList()}</div>;
   }
-};
+}
 
 export { CheckboxListComponent };

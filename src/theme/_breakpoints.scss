@@ -1,5 +1,5 @@
 $breakpointXs: 0;
-$breakpointSm: 960;
+$breakpointSm: 800;
 $breakpointMd: 1024;
 $breakpointLg: 1280;
 $breakpointXl: 1920;
@@ -11,7 +11,6 @@ $breakpointXl: 1920;
   breakpointLg: $breakpointLg;
   breakpointXl: $breakpointXl;
 }
-
 
 @mixin respond-to-desktop {
   @media screen and (min-width: $breakpointSm#{px}) {
